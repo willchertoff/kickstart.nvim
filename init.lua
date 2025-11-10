@@ -882,7 +882,7 @@ require('lazy').setup({
         -- <c-k>: Toggle signature help
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
-        preset = 'default',
+        preset = 'enter',
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
@@ -1030,6 +1030,9 @@ require('lazy').setup({
   require 'custom.plugins.oil',
   require 'custom.plugins.avante',
   require 'custom.plugins.fugative',
+  require 'custom.plugins.neotest',
+  require 'custom.plugins.windsurf',
+  require 'custom.plugins.lazygit',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
@@ -1076,3 +1079,6 @@ vim.keymap.set('n', '<leader>n', ':enew<CR>')
 vim.keymap.set('n', '<leader>pv', ':Oil<CR>')
 vim.keymap.set('n', '<leader>nn', ':e ~/notes<CR>')
 vim.keymap.set('n', '<leader>gs', ':Git<CR>')
+vim.keymap.set('n', '<leader>te', ':tabnew | :terminal<CR>')
+vim.keymap.set('n', '<leader>tc', '<cmd>bd<cr>', { desc = 'Close buffer' })
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
