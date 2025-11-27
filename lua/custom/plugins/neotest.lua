@@ -11,12 +11,13 @@ end
 return {
   {
     'nvim-neotest/neotest',
-    ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+    ft = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'python' },
     dependencies = {
       'haydenmeade/neotest-jest',
       'nvim-lua/plenary.nvim',
       'nvim-treesitter/nvim-treesitter',
       'nvim-neotest/nvim-nio',
+      'nvim-neotest/neotest-python',
     },
     keys = {
       {
@@ -173,6 +174,11 @@ return {
               local abs = to_path(any)
               return find_project_root(vim.fn.fnamemodify(abs, ':h'))
             end,
+          },
+          require 'neotest-python' {
+            dap = { justMyCode = false }, -- optional debugging config
+            args = { '--maxfail=1', '--disable-warnings' }, -- pytest args
+            runner = 'pytest',
           },
         },
         run = { strategy = 'integrated' },

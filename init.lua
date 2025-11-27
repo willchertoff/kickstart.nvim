@@ -810,7 +810,8 @@ require('lazy').setup({
       completion = {
         -- By default, you may press `<c-space>` to show the documentation.
         -- Optionally, set `auto_show = true` to show the documentation after a delay.
-        documentation = { auto_show = true, auto_show_delay_ms = 500 },
+        -- documentation = { auto_show = true, auto_show_delay_ms = 500 },
+        documentation = { auto_show = true },
       },
 
       sources = {
@@ -861,13 +862,6 @@ require('lazy').setup({
       --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
       --  - ci'  - [C]hange [I]nside [']quote
       require('mini.ai').setup { n_lines = 500 }
-
-      -- Add/delete/replace surroundings (brackets, quotes, etc.)
-      --
-      -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-      -- - sd'   - [S]urround [D]elete [']quotes
-      -- - sr)'  - [S]urround [R]eplace [)] [']
-      require('mini.surround').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
@@ -933,10 +927,12 @@ require('lazy').setup({
   require 'custom.plugins.oil',
   require 'custom.plugins.fugative',
   require 'custom.plugins.neotest',
-  require 'custom.plugins.windsurf',
+  require 'custom.plugins.minuet',
   require 'custom.plugins.lazygit',
   require 'custom.plugins.eslint',
   require 'custom.plugins.trouble',
+  require 'custom.plugins.triforce',
+  require 'custom.plugins.surround',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
@@ -987,4 +983,4 @@ vim.keymap.set('n', '<leader>te', ':tabnew | :terminal<CR>')
 vim.keymap.set('n', '<leader>tc', '<cmd>bd<cr>', { desc = 'Close buffer' })
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
 vim.keymap.set('n', '<leader>cc', '<C-w>c', { desc = 'Close window' })
-vim.keymap.set('n', '<leader>tn', ':tabnew<CR>', { desc = 'New tab' })
+vim.keymap.set('n', '<leader>nt', ':tabnew<CR>', { desc = 'New tab' })
